@@ -51,8 +51,8 @@ The [PyGecko](https://github.com/wiiudev/pyGecko) library.<br />
 The [PyPresence](https://pypi.org/project/pypresence/) library. (From 1.4.3)
 
 ### Configuration
-A 32GB WiiU. In version 5.5.3E.<br />
+A 32GB WiiU. In version 5.5.4E.<br />
 A PC in dual boot: Ubuntu 16.04 and Windows 7.<br />
-A PC in dual boot: Linux Mint cinnamon 19.1 and Windows 10.<br />
+A PC in dual boot: Linux Mint cinnamon 19.3 and Windows 10.<br />
 <br />
 And more
