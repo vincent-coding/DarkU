@@ -75,7 +75,7 @@ def interface554():
             ipconfig.write("ip:"+saveipvalue)
             tkinter.messagebox.showinfo("DarkU - "+version, "The ip has been saved!")
     
-    def inject55X():
+    def inject554():
         ip = wiiuip.get()
         colors = listecouleur.get()
         if ip != "":
@@ -140,7 +140,7 @@ def interface554():
     listecolorsmenu = OptionMenu(main, listecouleur, "Reset","White","Light grey", "Grey (Dark Mod)", "Dark grey", "Very dark grey", "Black")
     listecolorsmenu.configure(width=20)
     listecolorsmenu.pack()
-    inject = Button(main, text="Inject", command=inject55X, width=22).pack(pady=5)
+    inject = Button(main, text="Inject", command=inject554, width=22).pack(pady=5)
 
     info = Label(main, text="Created by vincent-coding").pack(side=BOTTOM)
 
