@@ -29,7 +29,7 @@ class color:
 
 
 #Variables
-version = "2.0"
+version = "2.1"
 client_id = '694535619312877598'
 adress  = None
 wiiuver = None
@@ -125,6 +125,7 @@ def interface554():
     listecouleur.set("Reset")
 
     main.title("DarkU " + version + " - By VCoding - V5.5.4")
+    main.config(background='#302f2f')
     main.resizable(width = False, height = False)
     width = 300
     height = 220
@@ -134,15 +135,18 @@ def interface554():
     y       = (hScreen / 2) - (height / 2)
     main.geometry('%dx%d+%d+%d' % (width, height, x, y))
 
-    iplabel = Label(main, text="WiiU ip").pack()
-    ipentry = Entry(main, textvariable=wiiuip, width=25).pack()
+    iplabel = Label(main, text="WiiU ip",bg='#302f2f', fg='white').pack()
+    
+    invisible_label = Label(main, text=" ",font=("Arial", 5),background='#302f2f').pack(side=TOP)
+    
+    ipentry = Entry(main, textvariable=wiiuip, width=26).pack()
     ipsave = Button(main, text="Save ip", width=22 ,command=saveip).pack(pady=5)
     listecolorsmenu = OptionMenu(main, listecouleur, "Reset","White","Light grey", "Grey (Dark Mod)", "Dark grey", "Very dark grey", "Black")
     listecolorsmenu.configure(width=20)
     listecolorsmenu.pack()
     inject = Button(main, text="Inject", command=inject554, width=22).pack(pady=5)
 
-    info = Label(main, text="Created by vincent-coding").pack(side=BOTTOM)
+    info = Label(main, text="Created by vincent-coding and TnT GuN",bg='#302f2f', fg='white').pack(side=BOTTOM)
 
     try:
         with open('ip.darku'):
@@ -210,6 +214,7 @@ def interface55X():
     listecouleur.set("Reset")
 
     main.title("DarkU " + version + " - By VCoding - V5.5.X")
+    main.config(background='#302f2f')
     main.resizable(width = False, height = False)
     width = 300
     height = 220
@@ -219,15 +224,16 @@ def interface55X():
     y       = (hScreen / 2) - (height / 2)
     main.geometry('%dx%d+%d+%d' % (width, height, x, y))
 
-    iplabel = Label(main, text="WiiU ip").pack()
-    ipentry = Entry(main, textvariable=wiiuip, width=25).pack()
+    iplabel = Label(main, text="WiiU ip",bg='#302f2f', fg='white').pack()
+    invisible_label = Label(main, text=" ",font=("Arial", 5),background='#302f2f').pack(side=TOP)
+    ipentry = Entry(main, textvariable=wiiuip, width=26).pack()
     ipsave = Button(main, text="Save ip", width=22 ,command=saveip).pack(pady=5)
     listecolorsmenu = OptionMenu(main, listecouleur, "Reset","White","Light grey", "Grey (Dark Mod)", "Dark grey", "Very dark grey", "Black")
     listecolorsmenu.configure(width=20)
     listecolorsmenu.pack()
     inject = Button(main, text="Inject", command=inject55X, width=22).pack(pady=5)
 
-    info = Label(main, text="Created by vincent-coding").pack(side=BOTTOM)
+    info = Label(main, text="Created by vincent-coding and and TnT GuN",bg='#302f2f', fg='white').pack(side=BOTTOM)
     
     try:
         with open('ip.darku'):
@@ -257,10 +263,11 @@ def validateVer():
 
 
 selectVer = Tk()
+selectVer.config(background='#302f2f')
 selectVer.title("DarkU " + version + " - By VCoding")
 selectVer.resizable(width = False, height = False)
-width = 300
-height = 115
+width = 350
+height = 130
 wScreen  = selectVer.winfo_screenwidth()
 hScreen  = selectVer.winfo_screenheight()
 x       = (wScreen / 2) - (width / 2)
@@ -270,12 +277,15 @@ selectVer.geometry('%dx%d+%d+%d' % (width, height, x, y))
 selVersion = StringVar()
 selVersion.set("-- Select version --")
 
-txt = Label(selectVer, text="Select the version of your WiiU.").pack()
+txt = Label(selectVer, text="Select the version of your WiiU.",bg='#302f2f', fg='white').pack()
+
+invisible_label = Label(selectVer, text=" ",font=("Arial", 5),background='#302f2f').pack(side=TOP)
+
 versionList = OptionMenu(selectVer, selVersion, "5.5.4","5.5.3", "5.5.2", "5.5.1")
 versionList.configure(width=20)
 versionList.pack()
 button = Button(selectVer, text="Validated the version", width=22, command=validateVer).pack()
-copy = Label(selectVer, text="© 2020 - Software created by VCoding").pack(side=BOTTOM)
+copy = Label(selectVer, text="© 2020 - Software created by VCoding and TnT GuN",bg='#302f2f', fg='white').pack(side=BOTTOM)
 
 tkinter.messagebox.showwarning("DarkU " + version, "Be careful, this version of the software is still a beta. \nAll the software has been redone from scratch, which can cause bugs.\nIf you find a bug, please report it to me on GBATemp or Discord.")
 
