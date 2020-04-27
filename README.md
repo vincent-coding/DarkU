@@ -16,7 +16,7 @@ For the moment it's just shades of grey, but its creator is looking to be able t
 
 ## An example?
 Yes here it is, the preview of the Grey (Dark Mod)
-![example](https://i.imgur.com/4g4Fest.png)
+![Example](https://i.imgur.com/jdfWh88.jpg)
 
 ## Library used
 
