@@ -1,5 +1,5 @@
 # DarkU
-![License](https://img.shields.io/github/license/vincent-coding/darku?style=for-the-badge) ![100% Python](https://img.shields.io/github/languages/top/vincent-coding/darku?style=for-the-badge) ![Downloads](https://img.shields.io/github/downloads/vincent-coding/darku/total?style=for-the-badge) ![Stars](https://img.shields.io/github/stars/vincent-coding/DarkU.svg?style=for-the-badge&label=Stars)
+![100% Python](https://img.shields.io/github/languages/top/vincent-coding/darku?style=for-the-badge) ![Downloads](https://img.shields.io/github/downloads/vincent-coding/darku/total?style=for-the-badge) ![Stars](https://img.shields.io/github/stars/vincent-coding/DarkU.svg?style=for-the-badge&label=Stars)
 ![Python 3.8 and newer](https://img.shields.io/badge/Python-3.8%20and%20newer%20-informational?style=for-the-badge&logo=python)
 <br />
 DarkU is a software developed in Python by vincent-coding, with the help of TnT GuN. Its purpose is to temporarily change the background of your wiiu.
