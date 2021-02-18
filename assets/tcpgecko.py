@@ -1,5 +1,5 @@
 import socket, struct
-from common import *
+from assets.common import *
 from binascii import hexlify, unhexlify
 
 def enum(**enums):
@@ -8,7 +8,7 @@ def enum(**enums):
 class TCPGecko:
     def __init__(self, *args):
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_TCP)
-        self.s.connect((str(args[0]), 7331)) #IP, 1337 reversed, Cafiine uses 7332+
+        self.s.connect((str(args[0]), 7331))
 
     def readmem(self, address, length): #Number of bytes
         if length == 0: raise BaseException("Reading memory requires a length (# of bytes)")
@@ -95,7 +95,7 @@ class TCPGecko:
             self.pokemem(address, struct.unpack(">I", string[pos:pos + 4])[0])
             address += 4;pos += 4
         return
-        
+
     def memalign(self, size, align):
         symbol = self.get_symbol("coreinit.rpl", "MEMAllocFromDefaultHeapEx", True, 1)
         symbol = struct.unpack(">I", symbol.address)[0]
@@ -207,7 +207,7 @@ class TCPGecko:
         print(ret)
         return tcp.readmem(self.pBuffer, 0x200)
 
-    def get_symbol(self, rplname, symname, noprint=False, data=0):
+    def get_symbol(self, rplname, symname, data = 0): #Don't need to specify data
         self.s.send(b"\x71") #cmd_getsymbol
         request = struct.pack(">II", 8, 8 + len(rplname) + 1) #Pointers
         request += rplname.encode("UTF-8") + b"\x00"
@@ -218,7 +218,7 @@ class TCPGecko:
         self.s.send(request) #Get this symbol
         self.s.send(data) #Is it data?
         address = self.s.recv(4)
-        return ExportedSymbol(address, self, rplname, symname, noprint)
+        return ExportedSymbol(address, self, rplname, symname)
 
     def call(self, address, *args):
         arguments = list(args)
@@ -293,7 +293,7 @@ class TCPGecko:
             if access.lower() == "read":  return True
             if access.lower() == "write": return True
         else: return False
-        
+
     class FileSystem: #TODO: Try to clean this up ????
         Flags = enum(
             IS_DIRECTORY    = 0x80000000,
@@ -307,7 +307,7 @@ class TCPGecko:
             IS_RAW_FILE     = 0x00800000, #Entry isn't encrypted
             SPRT_DIR_SIZE   = 0x00100000, #Supports .size field, doesn't apply to files
             UNSUPPORTED_CHR = 0x00080000) #Entry name has an unsupported character
-        
+
         Permissions = enum( #Pretty self explanitory
             OWNER_READ  = 0x00004000,
             OWNER_WRITE = 0x00002000,
@@ -334,18 +334,16 @@ class TCPGecko:
             if perms & self.Permissions.OWNER_WRITE: printe += " OWNER_WRITE"
             if perms & self.Permissions.OTHER_READ:  printe += " OTHER_READ"
             if perms & self.Permissions.OTHER_WRITE: printe += " OTHER_WRITE"
-                
+
 def hexstr0(data): #0xFFFFFFFF, uppercase hex string
     return "0x" + hex(data).lstrip("0x").rstrip("L").zfill(8).upper()
 
 class ExportedSymbol(object):
-    def __init__(self, address, rpc=None, rplname=None, symname=None, noprint=False):
+    def __init__(self, address, rpc=None, rplname=None, symname=None):
         self.address = address
         self.rpc     = rpc
         self.rplname = rplname
         self.symname = symname
-        if not noprint: #Make command prompt not explode when using FS or SAVE functions
-            print(symname + " address: " + hexstr0(struct.unpack(">I", address)[0]))
 
     def __call__(self, *args):
         return self.rpc.call(self.address, *args) #Pass in arguments, run address

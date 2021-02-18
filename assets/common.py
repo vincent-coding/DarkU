@@ -9,7 +9,7 @@ class switch(object): #Taken from http://code.activestate.com/recipes/410692/
         """Return the match method once, then stop"""
         yield self.match
         raise StopIteration
-    
+
     def match(self, *args):
         """Indicate whether or not to enter a case suite"""
         if self.fall or not args:
