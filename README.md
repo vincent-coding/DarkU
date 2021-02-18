@@ -17,8 +17,8 @@ For the moment it's just shades of grey, but its creator is looking to be able t
 -   Black
 
 ## Pictures?
-This is what the software looks like since version 2.2.
-![](https://i.imgur.com/6CncFnz.png)<br />
+This is what the software looks like since version 2.2.<br />
+![Interface](https://i.imgur.com/6CncFnz.png)<br />
 <br />
 Here is the result on the WiiU for the grey colour.
 ![Example](https://i.imgur.com/jdfWh88.jpg)
