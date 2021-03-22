@@ -1,0 +1,9 @@
+		UPDATE 2.3
+		22/03/2021
+
+- Adding a CHANGELOGS file
+- Addition of an update checking system
+- Deactivation of the "Get Current Color" option due to a bug (crash)
+- Added support for version 5.5.5
+- Added support for version 5.5.3 for USA and JAP consoles.
+- Added better support for the software icon for Windows (software crashed when the icon was not loaded.)
